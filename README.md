@@ -1,8 +1,8 @@
 # Code-for-FBDE-model
 This is a repository for "FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning."
 
-FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning
-Jiacheng Lin, Zhiqiang Xiao, Yaping Li, Xiewen Dai, Zhiyong Li, Member, IEEE, and Shutao Li, Fellow IEEE.
+# FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning
+# Jiacheng Lin, Zhiqiang Xiao, Yaping Li, Xiewen Dai, Zhiyong Li, Member, IEEE, and Shutao Li, Fellow IEEE.
 
 ABSTRCT-Visual privacy protection has become difficult because of the large-scale application of visual devices. Although the methods of visual privacy protection have developed rapidly, it is mostly in face de-identification or visual privacy encryption. At present, there is still a lack of a method for full-body de-identification, especially using deep learning methods. Based on this, we propose a full-body de-identification model based on adversarial learning and contrastive learning (FBDE). Firstly, the architecture of the generator and discriminator is designed for full-body de-identification. Secondly, a content mapping network and content loss function based on contrastive learning is designed for full-body de-identification. Then, to address the problem of misjudgment of discriminators in the process of full-body de-identification, an adversarial loss based on triple loss is proposed. Furthermore, a full-body deidentification dataset for full-body de-identification is made and implemented. Finally, the experiment results show that the FBDE model is not only better than state-of-the-art full-body de-identification models of parameters and training speed, but also in the effect of full-body de-identification. In addition, to the best of our knowledge, this is the first-time framework used to perform full-body de-identification.
 
