@@ -8,24 +8,23 @@ ABSTRCT-Visual privacy protection has become difficult because of the large-scal
 
 KEYWORD-Full-body De-identification, Data privacy, Adversarial learning, Contrastive learning, Neural networks.
 
-##############
-#Requirements#
-##############
+Requirements
+
 python == 3.6
 tensorflow == 1.14
 
-#############
-#  DATASET  #
-#############
+
+DATASET
+
 FBDE LEVEL I:   The image’s characters, dress styles, and backgrounds in trainA and trainB are unified. The images numbers of trainA, trainB, testA is 1050, 1050, and 100, respectively.
 FBDE LEVEL II:  The images in trainA and trainB have the same background, different dressing styles, and characters. The images numbers of trainA, trainB, testA is 1230, 1230, and 100, respectively.
 FBDE LEVEL III: The dress styles of trainA and trainB are uniform, the characters and backgrounds are different. The images numbers of trainA, trainB, testA is 1050, 1050, and 100, respectively.
 FBDE LEVEL IV:  The characters, dress styles, and backgrounds in trainA and trainB are not uniform. The images numbers of trainA, trainB, testA is 2780, 2770, and 138, respectively.
 
 You can download this dataset on: https://github.com/JchengLin/FBDE_LEVEL_DATASET
-#############
-#   Usage   #
-#############
+
+Usage
+
 ├── dataset
    └── YOUR_DATASET_NAME
        ├── trainA
@@ -45,12 +44,10 @@ You can download this dataset on: https://github.com/JchengLin/FBDE_LEVEL_DATASE
            ├── ddd.png
            └── ...
 
-#############
-#  TRAIN    #
-#############
+TRAIN
+
 RUN python main.py --dataset selfie2anime
 
-#############
-#   TEST    #
-#############
+TEST
+
 python main.py --dataset selfie2anime --phase test
