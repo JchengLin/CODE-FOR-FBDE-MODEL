@@ -32,9 +32,7 @@ You can download this dataset on: https://github.com/JchengLin/FBDE_LEVEL_DATASE
 # Usage
 
 ├── dataset
-
-   └── YOUR_DATASET_NAME
-   
+   └── YOUR_DATASET_NAME   
        ├── trainA
        
            ├── xxx.jpg (name, format doesn't matter)
