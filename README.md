@@ -63,3 +63,7 @@ RUN python main.py --dataset selfie2anime
 # TEST
 
 RUN python main.py --dataset selfie2anime --phase test
+
+# EVALUATION PROTOCAL
+
+The evaluation protocal in the EVALUATION PROTOCAL.
