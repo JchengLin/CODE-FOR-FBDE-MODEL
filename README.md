@@ -13,6 +13,7 @@ KEYWORD-Full-body De-identification, Data privacy, Adversarial learning, Contras
 # Requirements
 
 python == 3.6
+
 tensorflow == 1.14
 
 
