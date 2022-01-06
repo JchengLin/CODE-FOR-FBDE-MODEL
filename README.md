@@ -62,4 +62,4 @@ RUN python main.py --dataset selfie2anime
 
 # TEST
 
-python main.py --dataset selfie2anime --phase test
+RUN python main.py --dataset selfie2anime --phase test
