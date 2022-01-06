@@ -27,7 +27,7 @@ FBDE LEVEL III: The dress styles of trainA and trainB are uniform, the character
 
 FBDE LEVEL IV:  The characters, dress styles, and backgrounds in trainA and trainB are not uniform. The images numbers of trainA, trainB, testA is 2780, 2770, and 138, respectively.
 
-You can download this dataset on: https://github.com/JchengLin/FBDE_LEVEL_DATASET
+You can download this dataset on: https://github.com/JchengLin/FBDE_DATASET
 
 # Usage
 
