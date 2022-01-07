@@ -15,18 +15,18 @@ python == 3.6
 tensorflow == 1.14
 
 
-# DATASET
+# Dataset
 
 You can download this dataset on: https://github.com/JchengLin/FBDE_DATASET
 
-# TRAIN
+# Train
 
 RUN python main.py --dataset selfie2anime
 
-# TEST
+# Test
 
 RUN python main.py --dataset selfie2anime --phase test
 
-# EVALUATION
+# Evaluation
 
 The evaluation protocal in the EVALUATION PROTOCAL.
