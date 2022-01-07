@@ -29,33 +29,6 @@ FBDE LEVEL IV:  The characters, dress styles, and backgrounds in trainA and trai
 
 You can download this dataset on: https://github.com/JchengLin/FBDE_DATASET
 
-# Usage
-
-├── dataset
-
-   └── YOUR_DATASET_NAME   
-   
-       ├── trainA
-       
-           ├── xxx.jpg (name, format doesn't matter)
-           
-           ├── yyy.png
-           
-           └── ...
-           
-       ├── trainB
-           ├── zzz.jpg
-           ├── www.png
-           └── ...
-       ├── testA
-           ├── aaa.jpg 
-           ├── bbb.png
-           └── ...
-       └── testB
-           ├── ccc.jpg 
-           ├── ddd.png
-           └── ...
-
 # TRAIN
 
 RUN python main.py --dataset selfie2anime
