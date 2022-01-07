@@ -1,5 +1,3 @@
-# Code-for-FBDE-model
-This is a repository for "FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning."
 
 # This repository provides the official Tensorflow implementation of the following paper:
 FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning
