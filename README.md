@@ -21,11 +21,11 @@ You can download this dataset on: https://github.com/JchengLin/FBPP_DATASET
 
 # Train
 
-RUN python main.py --dataset FBPP LEVEL I
+RUN python main.py --dataset DATA_NAME
 
 # Test
 
-RUN python main.py --dataset FBPP LEVEL I --phase test
+RUN python main.py --dataset DATA_NAME --phase test
 
 # Evaluation
 
