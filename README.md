@@ -1,12 +1,12 @@
 
 # This repository provides the official Tensorflow implementation of the following paper:
-FBDE: Full-body De-identification via Adversarial Learning and Contrastive Learning
+FBDE: Full-Body Privacy-Preserving Method via Adversarial Learning and Contrastive Learning
 
 Jiacheng Lin, Zhiqiang Xiao, Yaping Li, Xiewen Dai, Zhiyong Li, and Shutao Li.
 
-ABSTRCT-Visual privacy protection has become difficult because of the large-scale application of visual devices. Although the methods of visual privacy protection have developed rapidly, it is mostly in face de-identification or visual privacy encryption. At present, there is still a lack of a method for full-body de-identification, especially using deep learning methods. Based on this, we propose a full-body de-identification model based on adversarial learning and contrastive learning (FBDE). Firstly, the architecture of the generator and discriminator is designed for full-body de-identification. Secondly, a content mapping network and content loss function based on contrastive learning is designed for full-body de-identification. Then, to address the problem of misjudgment of discriminators in the process of full-body de-identification, an adversarial loss based on triple loss is proposed. Furthermore, a full-body deidentification dataset for full-body de-identification is made and implemented. Finally, the experiment results show that the FBDE model is not only better than state-of-the-art full-body de-identification models of parameters and training speed, but also in the effect of full-body de-identification. In addition, to the best of our knowledge, this is the first-time framework used to perform full-body de-identification.
+ABSTRCT-Visual privacy protection has become difficult because of the large-scale application of visual devices. Although the methods of visual privacy protection have developed rapidly, it is mostly in face de-identification or visual privacy encryption. At present, there is still a lack of a deep learning method for visual privacy-preserving, especially for full-body privacy-preserving. Based on this, we propose a privacy-preserving method for full-body based on adversarial learning and contrastive learning (FBDE). Firstly, the architecture of the generator and discriminator is designed for visual privacy-preserving. Secondly, a content mapping network and content loss function based on contrastive learning is designed for visual privacy-preserving. Then, to address the problem of misjudgment of discriminators in the process of visual privacy-preserving, an adversarial loss based on triple loss is proposed. Furthermore, a visual privacy-preserving dataset for full-body is made and implemented. Finally, the experiment results show that the FBDE model is not only better than state-of-the-art visual privacy-preserving models of parameters and training speed, but also in the effect of full-body privacy-preserving. In addition, to the best of our knowledge, this is the first-time end-to-end framework used to perform full-body privacy-preserving.
 
-KEYWORD-Full-body De-identification, Data privacy, Adversarial learning, Contrastive learning, Neural networks.
+KEYWORD-Full-body privacy-preserving, Data privacy, Adversarial learning, Contrastive learning, Neural networks.
 
 # Requirements
 
@@ -21,11 +21,11 @@ You can download this dataset on: https://github.com/JchengLin/FBDE_DATASET
 
 # Train
 
-RUN python main.py --dataset selfie2anime
+RUN python main.py --dataset FBDE LEVEL I
 
 # Test
 
-RUN python main.py --dataset selfie2anime --phase test
+RUN python main.py --dataset FBDE LEVEL I --phase test
 
 # Evaluation
 
