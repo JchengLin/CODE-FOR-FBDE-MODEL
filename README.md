@@ -21,11 +21,11 @@ You can download this dataset on: https://github.com/JchengLin/FBPP_DATASET
 
 # Train
 
-RUN python main.py --dataset DATA_NAME
+RUN python privacy-preserving.py --dataset DATA_NAME
 
 # Test
 
-RUN python main.py --dataset DATA_NAME --phase test
+RUN python privacy-preserving.py --dataset DATA_NAME --phase test
 
 # Evaluation
 
