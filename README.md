@@ -1,5 +1,3 @@
-# This repository provides the official Tensorflow implementation of FBDE model.
-
 # Requirements
 
 python == 3.6
