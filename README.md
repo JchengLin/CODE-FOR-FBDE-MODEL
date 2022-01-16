@@ -6,7 +6,7 @@ tensorflow == 1.14
 
 # Dataset
 
-You can download this dataset on: https://github.com/JchengLin/FBPP_DATASET
+Dataset can download on: https://github.com/JchengLin/FBPP_DATASET
 
 # Train
 
