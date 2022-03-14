@@ -447,14 +447,14 @@ def dloss(loss_func, real, fake, m=0.1):
             adv_loss = d_fake + m * d_real
 
         if loss_func == 'lscut' :
-            # (A, P) --> d(A, P) ----------------> dis_post.
+            # Lsgan loss -----------------------> real loss.
             dis_post = tf.reduce_mean(tf.squared_difference(1.0, real[i]))
             # (A, N) --> d(A, N) ----------------> dis_negs.
             dis_negs = tf.reduce_mean(tf.squared_difference(1.0, fake[i]))
-            # max(dis_post - m*dis_negs, 0.0) --> real loss.
+            # (A, P) --> d(A, P) ----------------> dis_post.
+            dis_post = tf.reduce_mean(tf.squared_difference(0.0, fake[i]))
+            # max(dis_post - m*dis_negs, 0.0) --> fake loss.
             dis_real = tf.maximum(0.0, dis_post - m * dis_negs)
-            # Lsgan loss -----------------------> fake loss.
-            dis_fake = tf.reduce_mean(tf.squared_difference(0.0, fake[i]))
             # Lsgan loss ------> Triplts discriminator loss.
             adv_loss = (dis_real + dis_fake)
             
