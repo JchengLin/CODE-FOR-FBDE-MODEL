@@ -13,7 +13,7 @@ def parse_args():
     parser.add_argument('--decay_epoch', type=int, default=50, help='decay epoch')
     parser.add_argument('--batch_size', type=int, default=1, help='The size of batch size')
     parser.add_argument('--decay_flag', type=str2bool, default=True, help='The decay_flag')
-    parser.add_argument('--epoch', type=int, default=100, help='The number of epochs to run')
+    parser.add_argument('--epoch', type=int, default=30, help='The number of epochs to run')
     parser.add_argument('--save_freq', type=int, default=1000, help='The number of ckpt_save_freq')
     parser.add_argument('--print_freq', type=int, default=500, help='The number of image_print_freq')
     parser.add_argument('--iteration', type=int, default=10000, help='The number of training iterations')
