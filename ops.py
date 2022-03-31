@@ -386,8 +386,7 @@ def contrastive_loss(feat_s, feat_t, temperature=1.0):
     """ Compute the contrastive_loss bettwen the realA and fakeB images loss for model. """
     
     numpatchs, dim = feat_s.shape.as_list()
-    logit = tf.matmul(feat_s, feat_t, transpose_b=True) / temperature
-    
+    logit = tf.matmul(feat_s, feat_t, transpose_b=True) / temperature    
     # Diagonal entries are pos logits, the others are neg logits.
     label = tf.eye(numpatchs, dtype=tf.float32)
     
@@ -448,26 +447,42 @@ def dloss(loss_func, real, fake, m=0.1):
 
         if loss_func == 'lscut' :
             # Lsgan loss -----------------------> real loss.
-            dis_post = tf.reduce_mean(tf.squared_difference(1.0, real[i]))
-            # (A, N) --> d(A, N) ----------------> dis_negs.
-            dis_negs = tf.reduce_mean(tf.squared_difference(1.0, fake[i]))
+            dis_real = tf.reduce_mean(tf.squared_difference(1.0, real[i]))
             # (A, P) --> d(A, P) ----------------> dis_post.
             dis_post = tf.reduce_mean(tf.squared_difference(0.0, fake[i]))
+            # (A, N) --> d(A, N) ----------------> dis_negs.
+            dis_negs = tf.reduce_mean(tf.squared_difference(0.0, real[i]))
             # max(dis_post - m*dis_negs, 0.0) --> fake loss.
-            dis_real = tf.maximum(0.0, dis_post - m * dis_negs)
+            dis_fake = tf.maximum(0.0, dis_post - m * dis_negs)
             # Lsgan loss ------> Triplts discriminator loss.
             adv_loss = (dis_real + dis_fake)
             
-        if loss_func == 'softplus':
-            real_loss = tf.reduce_mean(tf.math.log(1 + tf.math.exp(-real[i])))
-            fake_loss = tf.reduce_mean(tf.math.log(1 + tf.math.exp(fake[i])))
+        if loss_func == 'wgan':
+            real_loss = -tf.reduce_mean(real[i])
+            fake_loss = tf.reduce_mean(fake[i])
             adv_loss = real_loss + fake_loss
+            
+        if loss_func == 'sgan':
+            real_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=tf.ones_like(real[i]), logits=real[i]))
+            fake_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=tf.zeros_like(fake[i]), logits=fake[i]))
+            adv_loss = real_loss + fake_loss
+            
+        if loss_func == 'hinge':
+            real_loss = tf.reduce_mean(relu(1.0 - real[i]))
+            fake_loss = tf.reduce_mean(relu(1.0 + fake[i]))
+            adv_loss = real_loss + fake_loss
+            
+        if loss_func == 'ragan':
+            real_loss = tf.reduce_mean(tf.squared_difference(real[i]-tf.reduce_mean(fake[i]), 1.0))
+            fake_loss = tf.reduce_mean(tf.square(fake[i])-tf.reduce_mean(real[i]))
+            adv_loss = real_loss + fake_loss
+        
             
         loss.append(adv_loss)
 
     return sum(loss)
     
-def gloss(loss_func, fake):
+def gloss(loss_func, real, fake):
     """Compute generator loss for model."""
     
     loss = []
@@ -485,8 +500,19 @@ def gloss(loss_func, fake):
         if loss_func == 'lscut' :
             fake_loss = tf.reduce_mean(tf.squared_difference(1.0, fake[i]))
             
-        if loss_func == 'softplus':
-            fake_loss = tf.reduce_mean(tf.math.log(1 + tf.math.exp(-fake[i])))
+        if loss_func == 'wgan':
+            fake_loss = -tf.reduce_mean(fake[i])
+            
+        if loss_func == 'sgan':
+            fake_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=tf.ones_like(fake[i]), logits=fake[i]))
+            
+        if loss_func == 'hinge':
+            fake_loss = -tf.reduce_mean(fake[i])
+            
+        if loss_func == 'ragan':
+            real_loss = tf.reduce_mean(tf.squared_difference(real[i]-tf.reduce_mean(fake[i]), 0.0))
+            fake_loss = tf.reduce_mean(tf.squared_difference(fake[i]-tf.reduce_mean(real[i]), 1.0))
+            fake_loss = real_loss + fake_loss
                         
         loss.append(fake_loss)
 

@@ -27,7 +27,7 @@ def parse_args():
     parser.add_argument('--margin', type=float, default=0.1, help='The margin of triplets loss')
     parser.add_argument('--nce_temp', type=float, default=0.07, help='The nce_temp for NCE loss')
     
-    parser.add_argument('--gan_type', type=str, default='lsgan', help='[lscut/lsgan/pulsgan]')
+    parser.add_argument('--gan_type', type=str, default='lscut', help='[sgan/hinge/wgan/ragan/lscut/lsgan/pulsgan]')
     parser.add_argument('--smoothing', type=str2bool, default=True, help='AdaLIN smoothing effect')
     parser.add_argument('--num_patches', type=int, default=256, help='The num_patches size of contrastive loss')
 
@@ -84,7 +84,7 @@ def main():
       exit()
 
     # open session
-    os.environ["CUDA_VISIBLE_DEVICES"] = '2'
+    # os.environ["CUDA_VISIBLE_DEVICES"] = '1'
     with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
         gan = FBDE(sess, args)
 

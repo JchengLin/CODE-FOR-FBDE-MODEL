@@ -283,7 +283,7 @@ class FBDE(object):
             net_G_gan_loss = self.pixel_weight * histogram_loss(self.fake_B, self.real_B)
             
             # net_G adv loss.
-            net_G_adv_loss =  self.adv_weight * (gloss(self.gan_type, fakeB) + gloss(self.gan_type, fakeB_cam))
+            net_G_adv_loss =  self.adv_weight * (gloss(self.gan_type, realB, fakeB) + gloss(self.gan_type, realB_cam, fakeB_cam))
             
             # net_F nce Loss.
             self.net_F_loss = self.contrastive_weight * contrastive_loss(feat_A, feat_B, temperature=self.nce_temp)
